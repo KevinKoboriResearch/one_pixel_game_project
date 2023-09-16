@@ -75,10 +75,18 @@ class MarioAnimationConfigs {
         stepTime: Globals.marioSpriteStepTime,
       );
 
-  Future<SpriteAnimation> walking() async => SpriteAnimation.spriteList(
-        await Future.wait(
-            [1, 2, 3].map((i) => Sprite.load('mario_${i}_walk.gif')).toList()),
-        stepTime: Globals.marioSpriteStepTime,
+  // Future<SpriteAnimation> walking() async => SpriteAnimation.spriteList(
+  //       await Future.wait(
+  //           [1, 2, 3].map((i) => Sprite.load('mario_${i}_walk.png')).toList()),
+  //       stepTime: Globals.marioSpriteStepTime,
+  //     );
+  SpriteAnimation walking() => SpriteAnimation.variableSpriteList(
+        List<Sprite>.generate(
+          5,
+          (index) => SpriteSheets.luffyWalkSpriteSheet.getSprite(0, index),
+        ),
+        stepTimes:
+            List<double>.generate(5, (index) => Globals.marioSpriteStepTime),
       );
 
   Future<SpriteAnimation> jumping() async => SpriteAnimation.spriteList(

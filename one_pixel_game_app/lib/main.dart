@@ -16,7 +16,7 @@ void main() async {
 
   await FlameAudio.audioCache.loadAll(
     [
-      Globals.jumpSmallSFX,
+      Globals.luffyJumpSFX,
       Globals.pauseSFX,
       Globals.bumpSFX,
       Globals.powerUpAppearsSFX,

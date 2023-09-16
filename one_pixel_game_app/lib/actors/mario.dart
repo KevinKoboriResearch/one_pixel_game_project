@@ -45,12 +45,12 @@ class Mario extends SpriteAnimationGroupComponent<MarioAnimationState>
   }) : super(
           position: position,
           size: Vector2(
-            Globals.tileSize,
-            Globals.tileSize,
+            Globals.tileSize * 2,
+            Globals.tileSize * 2,
           ),
           anchor: Anchor.center,
         ) {
-    debugMode = false;
+    debugMode = true;
     // Prevent Mario from going out of bounds of level.
     // Since anchor is in the center, split size in half for calculation.
     _minClamp = levelBounds.topLeft + (size / 2);
@@ -64,7 +64,7 @@ class Mario extends SpriteAnimationGroupComponent<MarioAnimationState>
     await super.onLoad();
 
     final SpriteAnimation idle = await AnimationConfigs.mario.idle();
-    final SpriteAnimation walking = await AnimationConfigs.mario.walking();
+    final SpriteAnimation walking = AnimationConfigs.mario.walking();
     final SpriteAnimation jumping = await AnimationConfigs.mario.jumping();
 
     animations = {
@@ -90,6 +90,9 @@ class Mario extends SpriteAnimationGroupComponent<MarioAnimationState>
 
     // Screen boundaries for Mario, top left and bottom right points.
     position.clamp(_minClamp, _maxClamp);
+    // if (_hAxisInput != 0 && isOnGround) {
+    // FlameAudio.play(Globals.luffyRunningSandalsSFX, volume: 0.3);
+    // }
   }
 
   // Stagger his speed while idle until he runs consistently.
@@ -99,6 +102,7 @@ class Mario extends SpriteAnimationGroupComponent<MarioAnimationState>
     } else {
       if (_currentMoveSpeed <= _maxMoveSpeed) {
         _currentMoveSpeed++;
+        // FlameAudio.play(Globals.luffyRunningSandalsSFX, volume: 0.3); // TODO: NOW
       }
     }
   }
@@ -128,7 +132,7 @@ class Mario extends SpriteAnimationGroupComponent<MarioAnimationState>
     isOnGround = false;
 
     // Play jump sound.
-    FlameAudio.play(Globals.jumpSmallSFX);
+    FlameAudio.play(Globals.luffyJumpSFX, volume: 0.3);
   }
 
   void marioAnimationUpdate() {
