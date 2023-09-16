@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter",
+            "type": "dart",
+            "request": "launch",
+            "program": "one_pixel_game_app/lib/main.dart",
+            "args": [
+                "-d",
+                "chrome",
+                // "--web-renderer",
+                // "html"
+            ]
+        }
+    ]
+}
