@@ -5,7 +5,7 @@ import 'package:one_pixel_game_app/constants/globals.dart';
 class SpriteSheets {
   static late SpriteSheet itemBlocksSpriteSheet;
   static late SpriteSheet goombaSpriteSheet;
-  static late SpriteSheet luffyWalkSpriteSheet;
+  // static late SpriteSheet luffyWalkSpriteSheet;
 
   static Future<void> load() async {
     // Item Blocks Sprite Sheet
@@ -28,14 +28,14 @@ class SpriteSheets {
       rows: 1,
     );
 
-     // Luffy Sprite Sheet
-    final luffyWalkSpriteSheetImage = await Flame.images.load(
-      Globals.luffyWalkSpriteSheet,
-    );
-    luffyWalkSpriteSheet = SpriteSheet.fromColumnsAndRows(
-      image: luffyWalkSpriteSheetImage,
-      columns: 6,
-      rows: 1,
-    );
+    //  // Luffy Sprite Sheet
+    // final luffyWalkSpriteSheetImage = await Flame.images.load(
+    //   Globals.luffyWalkSpriteSheet,
+    // );
+    // luffyWalkSpriteSheet = SpriteSheet.fromColumnsAndRows(
+    //   image: luffyWalkSpriteSheetImage,
+    //   columns: 6,
+    //   rows: 1,
+    // );
   }
 }

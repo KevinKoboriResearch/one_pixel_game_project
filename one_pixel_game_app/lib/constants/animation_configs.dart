@@ -7,7 +7,8 @@ class AnimationConfigs {
   AnimationConfigs._();
 
   static GoombaAnimationConfigs goomba = GoombaAnimationConfigs();
-  static MarioAnimationConfigs mario = MarioAnimationConfigs();
+  static LuffyCharacterAnimationConfigs luffyCharacter =
+      LuffyCharacterAnimationConfigs();
   static BlockConfigs block = BlockConfigs();
 }
 
@@ -69,28 +70,29 @@ class GoombaAnimationConfigs {
       );
 }
 
-class MarioAnimationConfigs {
+class LuffyCharacterAnimationConfigs {
   Future<SpriteAnimation> idle() async => SpriteAnimation.spriteList(
-        [await Sprite.load(Globals.marioIdle)],
-        stepTime: Globals.marioSpriteStepTime,
+        await Future.wait([1, 2, 4, 6]
+            .map((i) =>
+                Sprite.load('luffy/sprites/idle/luffy_idle_sprite_$i.png'))
+            .toList()),
+        stepTime: Globals.luffyIdleSpriteTime,
       );
 
-  // Future<SpriteAnimation> walking() async => SpriteAnimation.spriteList(
-  //       await Future.wait(
-  //           [1, 2, 3].map((i) => Sprite.load('mario_${i}_walk.png')).toList()),
-  //       stepTime: Globals.marioSpriteStepTime,
-  //     );
-  SpriteAnimation walking() => SpriteAnimation.variableSpriteList(
-        List<Sprite>.generate(
-          5,
-          (index) => SpriteSheets.luffyWalkSpriteSheet.getSprite(0, index),
-        ),
-        stepTimes:
-            List<double>.generate(5, (index) => Globals.marioSpriteStepTime),
+  Future<SpriteAnimation> walking() async => SpriteAnimation.spriteList(
+        await Future.wait([1, 2, 3, 4, 5, 6]
+            .map((i) => Sprite.load(
+                'luffy/sprites/running/luffy_running_sprite_$i.png'))
+            .toList()),
+        stepTime: Globals.luffyRunningSpriteTime,
       );
 
   Future<SpriteAnimation> jumping() async => SpriteAnimation.spriteList(
-        [await Sprite.load(Globals.marioJump)],
-        stepTime: Globals.marioSpriteStepTime,
+        await Future.wait([1, 2, 3, 4]
+            .map((i) => Sprite.load(
+                'luffy/sprites/jumping/luffy_jumping_sprite_$i.png'))
+            .toList()),
+        stepTime: Globals.luffyJumpingSpriteTime,
+        loop: true,
       );
 }

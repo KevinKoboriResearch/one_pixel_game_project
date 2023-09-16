@@ -3,21 +3,21 @@ import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame_tiled/flame_tiled.dart';
-import 'package:one_pixel_game_app/actors/goomba.dart';
-import 'package:one_pixel_game_app/actors/mario.dart';
+import 'package:one_pixel_game_app/characters/goomba.dart';
+import 'package:one_pixel_game_app/characters/luffy_character.dart';
 import 'package:one_pixel_game_app/constants/globals.dart';
-import 'package:one_pixel_game_app/games/super_mario_bros.dart';
+import 'package:one_pixel_game_app/games/one_pixel_game.dart';
 import 'package:one_pixel_game_app/level/level_option.dart';
 import 'package:one_pixel_game_app/objects/blocks/brick_block.dart';
 import 'package:one_pixel_game_app/objects/blocks/mystery_block.dart';
 import 'package:one_pixel_game_app/objects/platform.dart';
 
-class LevelComponent extends Component with HasGameRef<SuperMarioBrosGame> {
+class LevelComponent extends Component with HasGameRef<OnePixelGame> {
   final LevelOption option;
 
   late Rectangle _levelBounds;
 
-  late Mario _mario;
+  late LuffyCharacter _luffyCharacter;
 
   LevelComponent(this.option) : super();
 
@@ -31,7 +31,7 @@ class LevelComponent extends Component with HasGameRef<SuperMarioBrosGame> {
 
     gameRef.world.add(level);
 
-    // Set on screen boundaries for Mario.
+    // Set on screen boundaries for Character.
     _levelBounds = Rectangle.fromPoints(
       Vector2(
         0,
@@ -113,14 +113,14 @@ class LevelComponent extends Component with HasGameRef<SuperMarioBrosGame> {
     for (final TiledObject obj in actorsLayer.objects) {
       switch (obj.name) {
         case 'Mario':
-          _mario = Mario(
+          _luffyCharacter = LuffyCharacter(
             position: Vector2(
               obj.x,
               obj.y,
             ),
             levelBounds: _levelBounds,
           );
-          gameRef.world.add(_mario);
+          gameRef.world.add(_luffyCharacter);
           break;
         case 'Goomba':
           final Goomba goomba = Goomba(
@@ -138,7 +138,7 @@ class LevelComponent extends Component with HasGameRef<SuperMarioBrosGame> {
   }
 
   void _setupCamera() {
-    gameRef.cameraComponent.follow(_mario, maxSpeed: 1000);
+    gameRef.cameraComponent.follow(_luffyCharacter, maxSpeed: 1000);
     gameRef.cameraComponent.setBounds(
       Rectangle.fromPoints(
         _levelBounds.topRight,

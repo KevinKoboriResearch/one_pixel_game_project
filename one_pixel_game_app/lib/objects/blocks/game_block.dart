@@ -2,7 +2,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame_audio/flame_audio.dart';
-import 'package:one_pixel_game_app/actors/mario.dart';
+import 'package:one_pixel_game_app/characters/luffy_character.dart';
 import 'package:one_pixel_game_app/constants/globals.dart';
 
 class GameBlock extends SpriteAnimationComponent with CollisionCallbacks {
@@ -48,7 +48,7 @@ class GameBlock extends SpriteAnimationComponent with CollisionCallbacks {
     super.update(dt);
   }
 
-  // When Mario hits the block...
+  // When LuffyCharacter hits the block...
   void hit() async {
     if (shouldCrumble) {
       // Wait a quarter second.
@@ -72,7 +72,7 @@ class GameBlock extends SpriteAnimationComponent with CollisionCallbacks {
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
-    if (other is Mario) {
+    if (other is LuffyCharacter) {
       if (intersectionPoints.length == 2) {
         // Average of two points on the circle that intersected.
         final Vector2 mid = (intersectionPoints.elementAt(0) +
@@ -80,12 +80,12 @@ class GameBlock extends SpriteAnimationComponent with CollisionCallbacks {
             2;
 
         // If hit from the bottom, (4 is for padding when hit from the sides).
-        // When velocity.y is less than 0, Mario is moving up.
-        // When velocity.y is greater than 0, Mario is moving down.
+        // When velocity.y is less than 0, LuffyCharacter is moving up.
+        // When velocity.y is greater than 0, LuffyCharacter is moving down.
         if ((mid.y > position.y + size.y - 4) &&
             (mid.y < position.y + size.y + 4) &&
             other.velocity.y < 0) {
-          // Mario bumps his head.
+          // LuffyCharacter bumps his head.
           other.velocity.y = 0;
 
           hit();

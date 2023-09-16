@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:one_pixel_game_app/constants/globals.dart';
 import 'package:one_pixel_game_app/constants/sprite_sheets.dart';
-import 'package:one_pixel_game_app/games/super_mario_bros.dart';
+import 'package:one_pixel_game_app/games/one_pixel_game.dart';
 
-SuperMarioBrosGame _superMarioBrosGame = SuperMarioBrosGame();
+OnePixelGame _onePixelGame = OnePixelGame();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +16,9 @@ void main() async {
 
   await FlameAudio.audioCache.loadAll(
     [
+      Globals.bgm,
       Globals.luffyJumpSFX,
+      Globals.luffyRunningSandalsSFX,
       Globals.pauseSFX,
       Globals.bumpSFX,
       Globals.powerUpAppearsSFX,
@@ -24,10 +26,12 @@ void main() async {
     ],
   );
 
+  // FlameAudio.bgm.play(Globals.bgm, volume: 0.1);
+
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GameWidget(game: _superMarioBrosGame),
+      home: GameWidget(game: _onePixelGame),
     ).animate().fadeIn(
           delay: const Duration(milliseconds: 50),
           duration: const Duration(milliseconds: 400),

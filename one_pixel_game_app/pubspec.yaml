@@ -30,7 +30,13 @@ flutter:
 
   assets:
     - assets/audio/
+    - assets/audio/bgm/
+    - assets/audio/luffy/
     - assets/images/
+    - assets/images/luffy/sprites/
+    - assets/images/luffy/sprites/idle/
+    - assets/images/luffy/sprites/jumping/
+    - assets/images/luffy/sprites/running/
     - assets/tiles/
 
   

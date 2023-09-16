@@ -1,9 +1,9 @@
 import 'package:flame/components.dart';
 import 'package:one_pixel_game_app/constants/animation_configs.dart';
-import 'package:one_pixel_game_app/games/super_mario_bros.dart';
+import 'package:one_pixel_game_app/games/one_pixel_game.dart';
 import 'package:one_pixel_game_app/objects/blocks/game_block.dart';
 
-class MysteryBlock extends GameBlock with HasGameRef<SuperMarioBrosGame> {
+class MysteryBlock extends GameBlock with HasGameRef<OnePixelGame> {
   bool _hit = false;
 
   MysteryBlock({
