@@ -50,7 +50,7 @@ class Mario extends SpriteAnimationGroupComponent<MarioAnimationState>
           ),
           anchor: Anchor.center,
         ) {
-    debugMode = true;
+    debugMode = false;
     // Prevent Mario from going out of bounds of level.
     // Since anchor is in the center, split size in half for calculation.
     _minClamp = levelBounds.topLeft + (size / 2);

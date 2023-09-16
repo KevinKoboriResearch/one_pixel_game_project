@@ -9,7 +9,7 @@ class Platform extends PositionComponent {
           position: position,
           size: size,
         ) {
-    debugMode = true;
+    debugMode = false;
   }
 
   @override
