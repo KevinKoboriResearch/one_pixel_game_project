@@ -31,7 +31,76 @@ void main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GameWidget(game: _onePixelGame),
+      home: Stack(
+        children: [
+          GameWidget(game: _onePixelGame),
+          Scaffold(
+            backgroundColor: Colors.transparent,
+            // body: SizedBox(
+            //   height: 400,
+            //   width: 400,
+            //   child: Column(
+            //     children: [
+            //       Row(
+            //         children: [
+            //           AspectRatio(
+            //             aspectRatio: 1,
+            //             child: FloatingActionButton.extended(
+            //               onPressed: () {},
+            //               label: Image.asset(
+            //                   'assets/images/luffy/menu/luffy_menu.png'),
+            //             ),
+            //           ),
+            //           AspectRatio(
+            //             aspectRatio: 1,
+            //             child: FloatingActionButton.extended(
+            //               onPressed: () {},
+            //               label: Image.asset(
+            //                   'assets/images/luffy/menu/luffy_menu.png'),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: AspectRatio(
+                aspectRatio: 1,
+                child: FloatingActionButton.extended(
+                  onPressed: () {},
+                  label: Image.asset('assets/images/luffy/menu/luffy_menu.png'),
+                ),
+              ),
+              centerTitle: true,
+              title: FloatingActionButton.extended(
+                onPressed: () {},
+                label: Image.asset('assets/images/luffy/menu/luffy_menu.png'),
+              ),
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: FloatingActionButton.extended(
+                      onPressed: () {},
+                      label:
+                          Image.asset('assets/images/luffy/menu/luffy_menu.png'),
+                    ),
+                  ),
+                ),
+              ],
+              toolbarHeight: 128,
+            ),
+            floatingActionButton: FloatingActionButton.extended(
+              onPressed: () {},
+              label: Image.asset('assets/images/luffy/menu/luffy_menu.png'),
+            ),
+          )
+        ],
+      ),
     ).animate().fadeIn(
           delay: const Duration(milliseconds: 50),
           duration: const Duration(milliseconds: 400),
