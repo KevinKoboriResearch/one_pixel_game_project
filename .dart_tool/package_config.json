@@ -134,6 +134,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_animate",
+      "rootUri": "file:///C:/Users/danil/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_animate-4.2.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///C:/Users/danil/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-2.0.3",
       "packageUri": "lib/",
@@ -362,13 +368,13 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "one_pixel_app",
+      "name": "one_pixel_game_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-09-16T14:09:42.041407Z",
+  "generated": "2023-09-17T17:34:24.005323Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }
