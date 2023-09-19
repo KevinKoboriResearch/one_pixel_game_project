@@ -28,10 +28,14 @@ class Player extends SpriteAnimationGroupComponent
   String character;
   Player({
     super.position,
-    this.character = 'Ninja Frog',
-  });
+    this.character = 'Mask Dude',
+  }) {
+    // debugMode = true;
+  }
 
   final double stepTime = 0.05;
+  // final double stepTime = 0.2;
+
   late final SpriteAnimation idleAnimation;
   late final SpriteAnimation runningAnimation;
   late final SpriteAnimation jumpingAnimation;
@@ -62,8 +66,8 @@ class Player extends SpriteAnimationGroupComponent
   double accumulatedTime = 0;
 
   @override
-  FutureOr<void> onLoad() {
-    _loadAllAnimations();
+  FutureOr<void> onLoad() async {
+    await _loadAllAnimations();
     // debugMode = true;
 
     startingPosition = Vector2(position.x, position.y);
@@ -122,12 +126,24 @@ class Player extends SpriteAnimationGroupComponent
     super.onCollisionStart(intersectionPoints, other);
   }
 
-  void _loadAllAnimations() {
-    idleAnimation = _spriteAnimation('Idle', 11);
-    runningAnimation = _spriteAnimation('Run', 12);
-    jumpingAnimation = _spriteAnimation('Jump', 1);
-    fallingAnimation = _spriteAnimation('Fall', 1);
-    hitAnimation = _spriteAnimation('Hit', 7)..loop = false;
+  Future<void> _loadAllAnimations() async {
+    idleAnimation = await _spriteAnimationOld('Idle', 11);
+    runningAnimation = await _spriteAnimationOld('Run', 12);
+    jumpingAnimation = await _spriteAnimationOld('Jump', 1);
+    fallingAnimation = await _spriteAnimationOld('Fall', 1);
+    hitAnimation = await _spriteAnimationOld('Hit', 7)
+      ..loop = false;
+    // idleAnimation =
+    //     await _spriteAnimation('idle', spritesList: [1, 2, 3, 4, 5, 6, 7]);
+    // runningAnimation =
+    //     await _spriteAnimation('idle', spritesList: [1, 2, 3, 4, 5, 6]);
+    // jumpingAnimation =
+    //     await _spriteAnimation('jumping', spritesList: [1, 2, 3, 4, 5]);
+    // fallingAnimation =
+    //     await _spriteAnimation('idle', spritesList: [1, 2, 3, 4, 5, 6, 7]);
+    // hitAnimation =
+    //     await _spriteAnimation('idle', spritesList: [1, 2, 3, 4, 5, 6, 7])
+    //       ..loop = false;
     appearingAnimation = _specialSpriteAnimation('Appearing', 7);
     disappearingAnimation = _specialSpriteAnimation('Desappearing', 7);
 
@@ -146,9 +162,9 @@ class Player extends SpriteAnimationGroupComponent
     current = PlayerState.idle;
   }
 
-  SpriteAnimation _spriteAnimation(String state, int amount) {
+  Future<SpriteAnimation> _spriteAnimationOld(String state, int amount) async {
     return SpriteAnimation.fromFrameData(
-      game.images.fromCache('Main Characters/$character/$state (32x32).png'),
+      game.images.fromCache('Main Characters/Luffy/$state (32x32).png'),
       SpriteAnimationData.sequenced(
         amount: amount,
         stepTime: stepTime,
@@ -156,6 +172,59 @@ class Player extends SpriteAnimationGroupComponent
       ),
     );
   }
+
+  // Future<SpriteAnimation> _spriteAnimation(String state,
+  //     {required List<int> spritesList}) async {
+  //   return SpriteAnimation.spriteList(
+  //     await Future.wait(spritesList
+  //         .map((i) => Sprite.load(
+  //             srcSize: Vector2.all(64),
+  //             'characters/luffy/sprites/$state/luffy_${state}_sprite_$i.png'))
+  //         .toList()),
+  //     stepTime: stepTime,
+  //     loop: true,
+  //   );
+  //   // game.images.fromCache('Main Characters/$character/$state (32x32).png'),
+  //   // SpriteAnimationData.sequenced(
+  //   //   amount: amount,
+  //   //   stepTime: stepTime,
+  //   //   textureSize: Vector2.all(32),
+  //   // ),
+  //   // );
+
+  //   // Future<SpriteAnimation> idle() async => SpriteAnimation.spriteList(
+  //   //       await Future.wait([1, 2, 4, 6]
+  //   //           .map((i) =>
+  //   //               Sprite.load('luffy/sprites/idle/luffy_idle_sprite_$i.png'))
+  //   //           .toList()),
+  //   //       stepTime: Globals.luffyIdleSpriteTime,
+  //   //     );
+
+  //   // Future<SpriteAnimation> walking() async => SpriteAnimation.spriteList(
+  //   //       await Future.wait([1, 2, 3, 4, 5, 6]
+  //   //           .map((i) => Sprite.load(
+  //   //               'luffy/sprites/running/luffy_running_sprite_$i.png'))
+  //   //           .toList()),
+  //   //       stepTime: Globals.luffyRunningSpriteTime,
+  //   //     );
+
+  //   // Future<SpriteAnimation> jumping() async => SpriteAnimation.spriteList(
+  //   //       await Future.wait([1, 2, 3, 4]
+  //   //           .map((i) => Sprite.load(
+  //   //               'luffy/sprites/jumping/luffy_jumping_sprite_$i.png'))
+  //   //           .toList()),
+  //   //       stepTime: Globals.luffyJumpingSpriteTime,
+  //   //       loop: true,
+  //   //     );
+  //   // // return SpriteAnimation.fromFrameData(
+  //   // //   game.images.fromCache('Main Characters/$character/$state (32x32).png'),
+  //   // //   SpriteAnimationData.sequenced(
+  //   // //     amount: amount,
+  //   // //     stepTime: stepTime,
+  //   // //     textureSize: Vector2.all(32),
+  //   // //   ),
+  //   // // );
+  // }
 
   SpriteAnimation _specialSpriteAnimation(String state, int amount) {
     return SpriteAnimation.fromFrameData(

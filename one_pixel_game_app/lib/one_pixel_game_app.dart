@@ -29,10 +29,15 @@ class PixelAdventure extends FlameGame
   bool showControls = false;
   bool playSounds = true;
   double soundVolume = 1.0;
-  List<String> levelNames = ['Level-01', 'Level-02'];
+  List<String> levelNames = [
+    'Level-01',
+    'Level-02',
+  ];
   List<String> levelBGMs = [
-    'bgm/one_piece_ost_the_very_very_strongest_bgm.wav',
-    'bgm/one_piece_ost_the_very_very_strongest_bgm.wav'
+    'bgm/level_1_bgm.mp3',
+    'bgm/level_2_bgm.wav',
+    'bgm/level_3_bgm.mp3',
+    'bgm/level_4_bgm.mp3',
   ];
   int currentLevelIndex = 0;
 
@@ -129,11 +134,11 @@ class PixelAdventure extends FlameGame
       cam.viewfinder.anchor = Anchor.topLeft;
 
       addAll([cam, world]);
-      
+
       if (FlameAudio.bgm.isPlaying) {
         await FlameAudio.bgm.stop();
       } else {
-        await FlameAudio.bgm.play(levelBGMs[currentLevelIndex], volume: 0.05);
+        // await FlameAudio.bgm.play(levelBGMs[currentLevelIndex], volume: 0.05); // TODO: ...
       }
     });
   }
