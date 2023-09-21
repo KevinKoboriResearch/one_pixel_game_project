@@ -77,11 +77,10 @@ flutter:
     - assets/images/Main Characters/Virtual Guy/
     - assets/images/Enemies/Chicken/
     - assets/tiles/
+    - assets/tiles/Pixel Adventure/
     # - assets/images/characters/luffy/sprites/idle/
     # - assets/images/characters/luffy/sprites/jumping/
     # - assets/images/characters/luffy/sprites/running/
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
