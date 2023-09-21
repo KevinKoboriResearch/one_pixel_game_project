@@ -30,7 +30,7 @@ class Player extends SpriteAnimationGroupComponent
     super.position,
     this.character = 'Mask Dude',
   }) {
-    // debugMode = true;
+    debugMode = true;
   }
 
   final double stepTime = 0.05;
@@ -128,10 +128,15 @@ class Player extends SpriteAnimationGroupComponent
 
   Future<void> _loadAllAnimations() async {
     idleAnimation = await _spriteAnimationOld('Idle', 11);
-    runningAnimation = await _spriteAnimationOld('Run', 12);
-    jumpingAnimation = await _spriteAnimationOld('Jump', 1);
-    fallingAnimation = await _spriteAnimationOld('Fall', 1);
-    hitAnimation = await _spriteAnimationOld('Hit', 7)
+    // runningAnimation = await _spriteAnimationOld('Run', 12);
+    // jumpingAnimation = await _spriteAnimationOld('Jump', 1);
+    // fallingAnimation = await _spriteAnimationOld('Fall', 1);
+    // hitAnimation = await _spriteAnimationOld('Hit', 7)
+      // ..loop = false;
+    runningAnimation = await _spriteAnimationOld('Idle', 11);
+    jumpingAnimation = await _spriteAnimationOld('Idle', 11);
+    fallingAnimation = await _spriteAnimationOld('Idle', 11);
+    hitAnimation = await _spriteAnimationOld('Idle', 11)
       ..loop = false;
     // idleAnimation =
     //     await _spriteAnimation('idle', spritesList: [1, 2, 3, 4, 5, 6, 7]);
