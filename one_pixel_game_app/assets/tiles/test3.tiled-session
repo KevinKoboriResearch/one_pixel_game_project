@@ -1,0 +1,88 @@
+{
+    "activeFile": "Level-03.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "Todos os Ficheiros (*)",
+    "fileStates": {
+        "King and Pigs Terrain.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Kings and Pigs Decorations.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Level-02.tmx": {
+            "scale": 1.5695652173913044,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.15235457063716,
+                "y": 184.1274238227147
+            }
+        },
+        "Level-03.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 300,
+                "y": 181.66666666666669
+            }
+        },
+        "Pirate Bomb Sets.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Pixel Adventure Terrain.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "Pixel Adventure.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "Tiles/Kings and Pigs Decorations.tsx": {
+            "scaleInDock": 1
+        },
+        "Tiles/Kings and Pigs Terrain.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "Tiles/Pirate Bomb Sets.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tiles/Pixel Adventure Terrain.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "dfggsdgdsg.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.externalTilesetPath": "D:/one_pixel_game_project/one_pixel_game_app/assets/tiles",
+    "last.imagePath": "D:/one_pixel_game_project/one_pixel_game_app/assets/images/Pirate Bomb/Sprites/8-Tile-Sets",
+    "openFiles": [
+        "Level-03.tmx"
+    ],
+    "project": "test3.tiled-project",
+    "recentFiles": [
+        "Level-03.tmx",
+        "Pirate Bomb Sets.tsx",
+        "Level-02.tmx",
+        "dfggsdgdsg.tsx",
+        "King and Pigs Terrain.tsx",
+        "Tiles/Pirate Bomb Sets.tsx",
+        "Kings and Pigs Decorations.tsx"
+    ],
+    "tileset.lastUsedFilter": "Ficheiros de conjunto de blocos Tiled (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
